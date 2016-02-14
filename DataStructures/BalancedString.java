@@ -44,7 +44,7 @@ public class BalancedString {
 				}
 				else {
 					
-					Character c2 = (Character) symbolStack.pop();
+					Character c2 = (Character) symbolStack.removeFirst(); //Pop operation
 
 					if ((c == '(' && c2 != ')') ||
 							(c == '[' && c2 != ']') ||
