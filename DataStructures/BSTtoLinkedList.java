@@ -11,6 +11,26 @@ import utils.LinkedListNode;
  * 
  * Write a program to convert a Binary Search Tree into a Linked List
  * 
+ * Classes that are given:
+ * 
+ * class BinarySearchTreeNode {
+ *
+ *    public Comparable data; 
+ *    public BinarySearchTreeNode leftChild;
+ *    public BinarySearchTreeNode rightChild;
+ * }
+ * 
+ * class LinkedListNode {
+ * 
+ *    public Object data;
+ *    public LinkedListNode next;
+ * 
+ *    public LinkedListNode(Object d) {
+ * 
+ *       this.data = d;
+ *    }
+ * }
+ *
  ***********************************************************************/
 
 public class BSTtoLinkedList {
