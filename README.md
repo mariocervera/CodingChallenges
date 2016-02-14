@@ -1,4 +1,4 @@
-# ProblemSolving
+# Problem Solving
 
 This repository contains algorithmic solutions for several programming challenges that cover different
 areas, such as data structures, sorting, searching, and graph traversal.
