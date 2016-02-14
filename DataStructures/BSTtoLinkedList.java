@@ -32,10 +32,10 @@ public class BSTtoLinkedList {
     	
     	inOrderTraversal(root, queue);
     	
+    	//Iterate the queue to create the linked list
+    	
     	LinkedListNode head = null;
     	LinkedListNode tail = null;
-    	
-    	//Iterate the queue to create the linked list
     	
     	while(!queue.isEmpty()) {
     		
@@ -60,17 +60,17 @@ public class BSTtoLinkedList {
     	if(root != null) {
     		
     		inOrderTraversal(root.leftChild, queue);
-    		queue.add(root);
+    		queue.addLast(root);
     		inOrderTraversal(root.rightChild, queue);
     	}
     }
     
     
-    /**************************************************************************************************
+	/**************************************************************************************************
 	 * Solution 2:
 	 * 
-	 * In-order traversal of the tree, progressively creating the linked list, without using a
-	 * Queue. This recursive algorithm has a complexity of O(n).
+	 * In-order traversal of the tree, progressively creating the linked list, without using a Queue.
+	 * This recursive algorithm has a complexity of O(n).
 	 *
 	 **************************************************************************************************/
 	
