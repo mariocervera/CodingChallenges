@@ -14,12 +14,12 @@ public class DisjointSets {
 	/****************************************************************************
 	 * Solution:
 	 * 
-	 * We can sort one of the two input arrays, say A. Then, we can iterate the
-	 * other array, say B, and use binary search to determine whether the elements
-	 * of B appear in A. If N is the size of A and M the size of B, the complexity
-	 * of this algorithm is O( N+M log N). This is because we get O(N log N) for
-	 * the sorting step plus O(M log N) for the cost of iterating B and carry out
-	 * binary search in A. 
+	 * We can sort one of the two input arrays (say A) and, then, iterate the
+	 * other array (say B) to determine whether the elements of B appear in A. We
+	 * can apply binary search on A for this purpose. If N is the size of A and M
+	 * the size of B, the complexity of this algorithm is O(N+M log N). This is
+	 * because we get O(N log N) for the sorting step plus O(M log N) for the cost
+	 * of iterating B and carrying out binary search on A. 
 	 * 
 	 ****************************************************************************/
 	
