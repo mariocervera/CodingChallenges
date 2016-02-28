@@ -25,7 +25,7 @@ public class JoinAndRemoveDuplicates {
 	 * 
 	 *****************************************************************************************************/ 
 	
-	private static List<Integer> joinAndRemoveDuplicates(int[] A, int[] B) {
+	public static List<Integer> joinAndRemoveDuplicates(int[] A, int[] B) {
     	
     	List<Integer> result = new ArrayList<Integer>();
     	
