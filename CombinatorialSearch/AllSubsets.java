@@ -50,7 +50,7 @@ public class AllSubsets {
 
 				solution.add(bool);
 
-				// Apply backtracking to generate all permutations
+				// Apply backtracking to generate all subsets
 
 				backtrack(solution, input);
 
@@ -62,7 +62,7 @@ public class AllSubsets {
 	}
 
 	/*
-	 * A solution string is a permutation if it has the same length as the input string
+	 * A solution array is a subset if it has the same length as the input set
 	 */
 	private static boolean isSubset(List<Boolean> solution, List<Integer> input) {
 
