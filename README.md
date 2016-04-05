@@ -1,6 +1,6 @@
 # Problem Solving
 
-This repository contains algorithmic solutions for several programming challenges that cover different areas, such as data structures, sorting, searching, and graph traversal. Each Java class of this repository contains the solution to a different problem. The problem statements (along with textual explanations of the solutions) are provided as comments in the headers of the Java classes.
+This repository contains algorithmic solutions for several programming challenges that cover different areas, such as data structures, sorting, and combinatorial search. Each Java class of this repository contains the solution to a different problem. The problem statements (along with textual explanations of the solutions) are provided as comments in the headers of the Java classes.
 
 References:
 
