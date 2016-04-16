@@ -11,17 +11,22 @@ import java.util.Deque;
  * 
  ****************************************************************************/ 
 
+/**
+ * 
+ * @author Mario Cervera
+ *
+ */
 public class BalancedString {
 
 	
-	/****************************************************************************************************
+	/*****************************************************************************************************
 	 * Solution:
 	 * 
 	 * This problem is solved using a Stack. When the String is being processed, each opening symbol entails
 	 * a "push" operation and each closing symbol entails a "pop" operation. The String will be balanced if
 	 * the Stack is empty at the end of the processing (and no error is found during the analysis).
 	 * 
-	 ****************************************************************************************************/ 
+	 *****************************************************************************************************/ 
 	
 	public static boolean isBalanced(String s) {
 

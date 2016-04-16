@@ -12,6 +12,11 @@ import java.util.List;
  * 
  ****************************************************************************/
 
+/**
+ * 
+ * @author Mario Cervera
+ *
+ */
 public class JoinAndRemoveDuplicates {
 
 	
