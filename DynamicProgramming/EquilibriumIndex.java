@@ -33,46 +33,47 @@ public class EquilibriumIndex {
 	 *****************************************************************************************************/
 
 	public static int equilibriumIndex(int[] A) {
-		
+
 		int N = A.length;
-        
-        if(N == 0) return -1;
-        
-        long[] sums = new long[N];
-        
-        //Calculate all the sums (recurrence relation)
-        
-        sums[0] = A[0];
-        
-        for(int i = 1; i < N; i++) {
-            
-            sums[i] = sums[i-1] + A[i];
-        }
-        
-        // Look for equilibrium index
-        
-        long lowSum = 0, highSum = 0;
-        
-        for(int i = 0; i < N; i++) {
-            
-            if(i == 0) {
-                lowSum = 0;
-                highSum = sums[N-1] - sums[i];
-            }
-            else if(i == N - 1) {
-                lowSum = sums[i - 1];
-                highSum = 0;
-            }
-            else {
-                lowSum = sums[i - 1];
-                highSum = sums[N-1] - sums[i];
-            }
-            
-            if(lowSum == highSum) {
-                return i;
-            }
-        }
-            
-        return -1;
-    }
+
+		if (N == 0)
+			return -1;
+
+		long[] sums = new long[N];
+
+		// Calculate all the sums (recurrence relation)
+
+		sums[0] = A[0];
+
+		for (int i = 1; i < N; i++) {
+
+			sums[i] = sums[i - 1] + A[i];
+		}
+
+		// Look for equilibrium index
+
+		long lowSum = 0, highSum = 0;
+
+		for (int i = 0; i < N; i++) {
+
+			if (i == 0) {
+				lowSum = 0;
+				highSum = sums[N - 1] - sums[i];
+			}
+			else if (i == N - 1) {
+				lowSum = sums[i - 1];
+				highSum = 0;
+			}
+			else {
+				lowSum = sums[i - 1];
+				highSum = sums[N - 1] - sums[i];
+			}
+
+			if (lowSum == highSum) {
+				return i;
+			}
+		}
+
+		return -1;
+	}
 }
