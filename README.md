@@ -5,4 +5,5 @@ This repository contains algorithmic solutions for several programming challenge
 References:
 
 [1] Skiena, S. S. The Algorithm Design Manual (Second Edition). Springer Science & Business Media (2008)
+
 [2] Codility, https://codility.com/
