@@ -27,8 +27,9 @@ public class EquilibriumIndex {
 	 * Solution:
 	 * 
 	 * This problem can be solved applying dynamic programming. We can define an array of size N to store
-	 * the sums. The i-th element will contain the sums of the elements from 0 to i. Using this array
-	 * we can easily search for equilibrium indexes in O(N) time.
+	 * all the partial sums. The i-th element of this array will contain the sum of the elements from 0 to
+	 * i (from the input array A). Using the array of partial sums we can easily search for equilibrium
+	 * indexes in O(N) time.
 	 * 
 	 *****************************************************************************************************/
 
