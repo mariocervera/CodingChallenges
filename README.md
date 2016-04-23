@@ -7,3 +7,5 @@ References:
 [1] Skiena, S. S. The Algorithm Design Manual (Second Edition). Springer Science & Business Media (2008)
 
 [2] Codility, https://codility.com/
+
+[3] HackerRank, https://www.hackerrank.com/
