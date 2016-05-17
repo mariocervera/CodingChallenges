@@ -55,114 +55,121 @@ public class GridWalking_Ndimensional {
 	 ***********************************************************************************************************************/
 	
 	private static long p = 1000000007L;
-	
+
 	public static long countWalks(int[] dimension, int N, int M, int[] position) {
-		
-		//First, calculate binomial coefficients (applying the recurrence of Pascal's triangle)
 
-        long[][] choose = new long[310][310];
-        
-        for (int i = 0; i < 310; i++) {
-            
-        	choose[i][0] = choose[i][i] = 1;
-            
-        	for (int j = 1; j < i; j++) {
-            
-        		choose[i][j] = (choose[i-1][j-1] + choose[i-1][j]) % p;
-            }
-        }
-        
-        // **************************************************************************************
-        // ****          Calculate number of paths in each dimension (individually)          ****
-        // **** This part corresponds to the problem solved in GridWalking_OneDimension.java ****
-        // **************************************************************************************
+		// First, calculate binomial coefficients (applying the recurrence of
+		// Pascal's triangle)
 
-        long[][] paths = new long [N+1][M+1]; // Dimension - paths for 1..M steps
+		long[][] choose = new long[310][310];
 
-        for(int m = 0; m <= M; m++) paths[0][m] = 1;
+		for (int i = 0; i < 310; i++) {
 
-        for(int d = 1; d < dimension.length; d++) {
+			choose[i][0] = choose[i][i] = 1;
 
-            int dimSize = dimension[d];
+			for (int j = 1; j < i; j++) {
 
-            long[][] matrix = new long[M+1][dimSize+1];
+				choose[i][j] = (choose[i - 1][j - 1] + choose[i - 1][j]) % p;
+			}
+		}
 
-            //Base cases
+		// **************************************************************************************
+		// ****          Calculate number of paths in each dimension (individually)          ****
+		// **** This part corresponds to the problem solved in GridWalking_OneDimension.java ****
+		// **************************************************************************************
 
-            for(int m = 0; m <= M; m++) matrix[m][0] = 1; 
+		long[][] paths = new long[N + 1][M + 1]; // Dimension - paths for 1..M steps
 
-            for(int n = 1; n <= dimSize; n++) {
+		for (int m = 0; m <= M; m++)
+			paths[0][m] = 1;
 
-                matrix[0][n] = 1;
+		for (int d = 1; d < dimension.length; d++) {
 
-                if(n == 1  || n == dimSize) {
-                    matrix[1][n] = 1;
-                }
-                else {
-                    matrix[1][n] = 2;
-                }
-            }
+			int dimSize = dimension[d];
 
-            // Recurrence relation
+			long[][] matrix = new long[M + 1][dimSize + 1];
 
-            for(int m = 2; m <= M; m++) {
-                for(int n = 1; n <= dimSize; n++) {
+			// Base cases
 
-                    long left = 0, right = 0;
+			for (int m = 0; m <= M; m++)
+				matrix[m][0] = 1;
 
-                    if(n > 1) {
-                        left = matrix[m-1][n-1];
-                    }
-                    if(n < dimSize) {
-                        right = matrix[m-1][n+1];
-                    }
+			for (int n = 1; n <= dimSize; n++) {
 
-                    matrix[m][n] = ( (left % p) + (right % p) ) % p; 
-                }
-            }
+				matrix[0][n] = 1;
 
-            // Copy result
+				if (n == 1 || n == dimSize) {
+					matrix[1][n] = 1;
+				} 
+				else {
+					matrix[1][n] = 2;
+				}
+			}
 
-            for(int m = 0; m <= M; m++) paths[d][m] = matrix[m][position[d]];
-        }
+			// Recurrence relation
 
-        // *******************************************************************
-        // **** Use the "paths" array to merge dimensions. Use C(n,k) % p ****
-        // *******************************************************************
+			for (int m = 2; m <= M; m++) {
+				for (int n = 1; n <= dimSize; n++) {
 
-        long[][] pathsIntegration = new long [N+1][M+1];
+					long left = 0, right = 0;
 
-        //Base cases
+					if (n > 1) {
+						left = matrix[m - 1][n - 1];
+					}
+					if (n < dimSize) {
+						right = matrix[m - 1][n + 1];
+					}
 
-        for(int m = 0; m <= M; m++) pathsIntegration[0][m] = 1L; 
+					matrix[m][n] = ((left % p) + (right % p)) % p;
+				}
+			}
 
-        for(int n = 0; n <= N; n++) pathsIntegration[n][0] = 1L;
+			// Copy result
 
-        for(int m = 1; m <= M; m++) pathsIntegration[1][m] = paths[1][m];
+			for (int m = 0; m <= M; m++)
+				paths[d][m] = matrix[m][position[d]];
+		}
 
-        // Recurrence relation
+		// *******************************************************************
+		// **** Use the "paths" array to merge dimensions. Use C(n,k) % p ****
+		// *******************************************************************
 
-        for(int d = 2; d < dimension.length; d++) {
-            for(int m = 1; m <= M; m++) {
+		long[][] pathsIntegration = new long[N + 1][M + 1];
 
-                long result = 0;
+		// Base cases
 
-                for(int i = 0; i <= m; i++) {               	
+		for (int m = 0; m <= M; m++)
+			pathsIntegration[0][m] = 1L;
 
-                    long binomialMod = choose[m][i];
-                    long operand1 = pathsIntegration[d-1][i];
-                    long operand2 = paths[d][m-i];
+		for (int n = 0; n <= N; n++)
+			pathsIntegration[n][0] = 1L;
 
-                    long prod1 = (binomialMod * operand1 ) % p;
-                    long prod2 = ( prod1 * operand2 ) % p;
+		for (int m = 1; m <= M; m++)
+			pathsIntegration[1][m] = paths[1][m];
 
-                    result += prod2;
-                }
+		// Recurrence relation
 
-                pathsIntegration[d][m] = result % p;
-            }
-        }
+		for (int d = 2; d < dimension.length; d++) {
+			for (int m = 1; m <= M; m++) {
 
-        return pathsIntegration[N][M];
+				long result = 0;
+
+				for (int i = 0; i <= m; i++) {
+
+					long binomialMod = choose[m][i];
+					long operand1 = pathsIntegration[d - 1][i];
+					long operand2 = paths[d][m - i];
+
+					long prod1 = (binomialMod * operand1) % p;
+					long prod2 = (prod1 * operand2) % p;
+
+					result += prod2;
+				}
+
+				pathsIntegration[d][m] = result % p;
+			}
+		}
+
+		return pathsIntegration[N][M];
 	}
 }
