@@ -25,7 +25,13 @@ public class KnightTour {
 	 * This problem can be solved applying backtracking. This brute-force approach for the knight's tour
 	 * problem is impractical on all but the smallest grids. Nonetheless, I use it here for illustration
 	 * purposes, since it is a nice example of a backtracking implementation. Other solutions are based
-	 * on "divide and conquer" and neural networks.
+	 * on divide and conquer algorithms and neural networks.
+	 * 
+	 * A general rule of thumb (extracted from Steven Skiena's book "The Algorithm Design Manual") is:
+	 * 
+	 * "Combinatorial searches, when augmented with tree pruning techniques, can be used to find the
+	 * optimal solution of small optimization problems. How small depends upon the specific problem, but
+	 * typical size limits are somewhere between 15 <= n <= 50 items".
 	 * 
 	 *****************************************************************************************************/
 	
