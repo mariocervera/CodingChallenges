@@ -24,7 +24,7 @@ public class TravelingSalesman {
 	 * Solution:
 	 * 
 	 * This class implements a solution that applies dynamic programming. Each subproblem A[S,j] stores the cost
-	 * of the shortest cycle that goes from point 1 to point j and traverses exactly the points that are contained
+	 * of the shortest cycle that goes from point 0 to point j and traverses exactly the points that are contained
 	 * in set S. This set does not specify the exact order of these points. This allows the algorithm to run in
 	 * O(2^n) time (where n is the number of points). Considering that the problem is NP-Complete, this is a huge
 	 * improvement over naive brute-force search, which takes O(n!) time.
