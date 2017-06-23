@@ -36,8 +36,7 @@ public class PowerSum {
 
 		//  Initialize table
 		
-        int maxPowerBase = (int) Math.pow(X, (double)1/N);
-        
+		int maxPowerBase = (int) Math.pow(X, (double)1/N);
 		int[][] A = new int[X+1][maxPowerBase+1];
 		
 		for(int i = 0; i <= X; i++) { // all values of X
