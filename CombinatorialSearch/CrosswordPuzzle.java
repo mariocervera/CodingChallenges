@@ -62,7 +62,7 @@ public class CrosswordPuzzle {
 	 * @param i, starting row
 	 * @param j, starting column
 	 */
-	private static void crossWord(Grid inputGrid, Grid outputGrid, List<GridWord> words, int i, int j) {
+	public static void crossWord(Grid inputGrid, Grid outputGrid, List<GridWord> words, int i, int j) {
 
 		if(allWordsInGrid(words)) { // Is the grid solved? If so, print solution and return
 			System.out.print(outputGrid.toString());
