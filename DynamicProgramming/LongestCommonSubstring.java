@@ -7,13 +7,14 @@ package problemSolving;
  * a run of consecutive letters in both strings. For example, the longest common substring of
  * "photograph" and "tomography" is "ograph". Let N = |X| and M = |Y|. Give a O(N*M) dynamic
  * programming algorithm for longest common substring.
+ *
+ * IMPORTANT: the Longest Common Substring problem can be solved faster (in linear time) using
+ * suffix trees.
  * 
  *********************************************************************************************/
 
-/**
- * 
+/** 
  * @author Mario Cervera
- *
  */
 public class LongestCommonSubstring {
 
